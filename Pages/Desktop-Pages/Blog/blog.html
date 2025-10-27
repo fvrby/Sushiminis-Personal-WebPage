@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Sushiminis</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="responsive.css">
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+    <script src="blog.js" defer></script>
+</head>
+<body>
+    <!--  
+    <nav>
+        <div id="sidegif-left">
+            <img src="src/gif22.gif">
+        </div>
+        <div id="sidegif-right">
+            <img src="src/chiyu.gif">
+        </div>
+    </nav>
+    -->
+    
+    <div id="box1">
+        <div id="title-banner">
+            <img src="../../Assets/icons/Notepad.png" alt="Blog Icon" class="title-icon">
+            <span class="title-text">BLOG DE SHUSHIMINIS</span>
+        </div>
+        
+        <div id="header"></div>
+        
+        <div id="box2">
+            <!-- PERMANENT ENTRY - Never filtered -->
+            <article class="blog-entry permanent-entry">
+                <h1>Welcome</h1>
+                <p>
+                    <i>nice to meet you, thank you for visiting my personal space.</i>
+                </p>
+                <p>
+                    For me this is a very personal place, when I have time, 
+                    I'm inspired or I just want to relax I come here, make a couple of changes, 
+                    make some progress and I'm happy.
+                </p>
+                <p>
+                    Feel free to walk around and share with me, if you want to tell me something or leave a message, 
+                    below is the chat window, a bit corny, but you can write whatever you want :D
+                </p>
+            </article>
+
+            <!-- BLOG ENTRY - JUNE 13 2025 -->
+            <article class="blog-entry" data-year="2025" data-month="6">
+                <h1>What more do I want to add? <span class="entry-date">13/06/2025</span></h1>
+                <p>
+                    I'm working on a way to add a music or video player, I would be very excited, 
+                    for me windows XP was my childhood and I spent my afternoons prowling through their applications, 
+                    playing or just discovering, the internet at that time in chile was not so accessible so many times I spent playing with the encarta haha
+                </p>
+                <img src="blog_assets/Encarta.png" alt="encarta" style="width: 50%; height: auto; display: block; margin: 0 auto;">
+            </article>
+
+            <!-- BLOG ENTRY - JUNE 13 2025 -->
+            <article class="blog-entry" data-year="2025" data-month="6">
+                <h1>What are my hobbies? <span class="entry-date">13/06/2025</span></h1>
+                <p>
+                    I like to play video games (I will create a space to show you my favorite games, which are soooo many),
+                    listen to all kinds of music, be with my family, and live day to day life.
+                    This is strange for me because many years ago I just wanted to end my life, 
+                    but little by little I have learned to love it.... I have found reasons to live a little longer.
+                    here is a picture of my beloved sushi
+                </p>
+                <img src="blog_assets/Sushi.png" alt="sushi" style="width: 50%; height: auto; display: block; margin: 0 auto;">
+                <p>
+                    I will add more stuff soon, thanks for reading me, sorry if my English is not perfect, I'm practicing it :D
+                </p>
+            </article>
+
+            <!-- BLOG ENTRY - OCTOBER 27 2025---->
+            <article class="blog-entry" data-year="2025" data-month="10">
+                <h1> What has happened in recent months? <span class="entry-date">27/10/2025</span></h1>
+                <p>
+                    A few months ago, Chetito, the love of my life, passed away. 
+                    I feel like everything around me fell apart. After isolating myself a bit 
+                    and focusing only on my work and family so as not to think about my grief, 
+                    I am returning to my hobbies and this personal space.
+                </p>
+                <img src="blog_assets/altarCheeto.png" alt="Altar de Cheeto" style="width: 80%; height: auto; display: block; margin: 0 auto;">
+            </article>
+
+            <img src="src/animep_1.gif" alt="blog end marker" class="blog-end-gif">
+        </div>
+        
+        <div id="box3">
+            <h1>blog</h1>
+            <div class="profile-info">
+                <img src="src/mittel.gif" title="winter icon" class="profile-image">
+                <span class="profile-text">I have 2 kittens, Sushi & Cheeto</span>
+            </div>
+
+            <h1>Archive</h1>
+            <div class="archive-container">
+                <div class="archive-year">
+                    <div class="year-header" onclick="toggleYear('year2025')">
+                        <span class="toggle-icon" id="icon-year2025">▶</span>
+                        <span class="year-text">2025</span>
+                    </div>
+                    <div class="month-list" id="year2025" style="display: none;">
+                        <a href="#" class="month-link" onclick="filterByMonth(2025, 10); return false;">October (1)</a>
+                        <a href="#" class="month-link" onclick="filterByMonth(2025, 6); return false;">June (2)</a>
+                    </div>
+                </div>
+                
+                <!-- Add more years here when needed:
+                <div class="archive-year">
+                    <div class="year-header" onclick="toggleYear('year2024')">
+                        <span class="toggle-icon" id="icon-year2024">▶</span>
+                        <span class="year-text">2024</span>
+                    </div>
+                    <div class="month-list" id="year2024" style="display: none;">
+                        <a href="#" class="month-link" onclick="filterByMonth(2024, 12); return false;">December (2)</a>
+                        <a href="#" class="month-link" onclick="filterByMonth(2024, 11); return false;">November (1)</a>
+                    </div>
+                </div>
+                -->
+                
+                <button class="show-all-btn" onclick="showAllPosts()">Show All</button>
+            </div>
+
+            <h1>disclaimers</h1>
+            <p>THIS SITE IS DESIGNED TO BE VIEWED ON DESKTOP<br></p>
+            <p style="font-size: 10px; margin-top: 10px; color: #666;">
+                💬 Want to chat? Open the <strong>Chat</strong> icon on the desktop!
+            </p>
+        </div>
+    </div>
+</body>
+</html>

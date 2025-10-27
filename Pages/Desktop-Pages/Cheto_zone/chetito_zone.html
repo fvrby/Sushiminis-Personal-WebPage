@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHETITO'S ZONE</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="js/script.js" defer></script>
+    <style>
+        /* Estilos específicos para las imágenes en las esquinas */
+        .corner-image {
+            position: absolute;
+            z-index: 5;
+        }
+        
+        .top-left-image {
+            top: -15px;
+            left: -15px;
+        }
+        
+        .top-right-image {
+            top: -15px;
+            right: -15px;
+        }
+        
+        .bottom-left-image {
+            bottom: -15px;
+            left: -15px;
+        }
+        
+        .bottom-right-image {
+            bottom: -15px;
+            right: -15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="min-h-screen w-full p-4 overflow-hidden relative bg-gradient animate-gradient">
+        <div class="absolute inset-0 border-3 border-transparent bg-rainbow animate-rainbow-border"></div>
+        
+        <!-- Moving heart image with trail -->
+        <div id="moving-image" class="absolute pointer-events-none z-0"></div>
+
+        <div class="relative z-10 max-w-md mx-auto rounded-lg p-6 shadow-lg">
+            <div class="flex items-center justify-center mb-8">
+                <h1 class="text-4xl font-bold text-center text-fuchsia-600 pixelated-text animate-glow">
+                    BEAUTIFUL CHETITO
+                </h1>
+            </div>
+            <div class="relative mb-8">
+                <div class="absolute -inset-2 bg-gradient rounded-lg opacity-75 blur animate-pulse"></div>
+                <div class="relative">
+                    <!-- Imagen principal -->
+                    <img src="Assets/Cheto_fondo.png" 
+                         alt="Cute kitten" 
+                         class="rounded-lg w-full h-64 object-cover">
+                    
+                    <!-- Esquina superior izquierda - superpuesta artísticamente -->
+                    <a href="page3.html" class="corner-image top-left-image transform hover:scale-110 transition-transform duration-300 image-with-sparkles">
+                        <img src="Assets/Cheto_hocico.png" 
+                             alt="Cat 3" 
+                             class="w-20 h-20 object-cover animate-dance-rotate">
+                        <div class="sparkle sparkle-top-left animate-corner-sparkle"></div>
+                        <div class="sparkle sparkle-top-right animate-corner-sparkle"></div>
+                        <div class="sparkle sparkle-bottom-left animate-corner-sparkle"></div>
+                        <div class="sparkle sparkle-bottom-right animate-corner-sparkle"></div>
+                        <div class="shimmer animate-corner-shimmer"></div>
+                    </a>
+                    
+                    <!-- Esquina superior derecha - superpuesta artísticamente -->
+                    <a href="page4.html" class="corner-image top-right-image transform hover:scale-110 transition-transform duration-300 image-with-sparkles">
+                        <img src="Assets/Cheto_nariz.png" 
+                             alt="Cat 4" 
+                             class="w-20 h-20 object-cover animate-dance-rotate">
+                        <div class="sparkle sparkle-top-left animate-corner-sparkle"></div>
+                        <div class="sparkle sparkle-top-right animate-corner-sparkle"></div>
+                        <div class="sparkle sparkle-bottom-left animate-corner-sparkle"></div>
+                        <div class="sparkle sparkle-bottom-right animate-corner-sparkle"></div>
+                        <div class="shimmer animate-corner-shimmer"></div>
+                    </a>
+                    
+                    <!-- Esquina inferior izquierda - superpuesta artísticamente -->
+                    <a href="page1.html" class="corner-image bottom-left-image transform hover:scale-110 transition-transform duration-300 image-with-sparkles">
+                        <img src="Assets/Cheto_ventana.png" 
+                             alt="Cat 1" 
+                             class="w-20 h-20 object-cover animate-dance-rotate">
+                        <div class="sparkle sparkle-top-left animate-corner-sparkle"></div>
+                        <div class="sparkle sparkle-top-right animate-rotate-sparkle"></div>
+                        <div class="sparkle sparkle-bottom-left animate-rotate-sparkle"></div>
+                        <div class="sparkle sparkle-bottom-right animate-corner-sparkle"></div>
+                        <div class="shimmer animate-corner-shimmer"></div>
+                    </a>
+                    
+                    <!-- Esquina inferior derecha - superpuesta artísticamente -->
+                    <a href="page2.html" class="corner-image bottom-right-image transform hover:scale-110 transition-transform duration-300 image-with-sparkles">
+                        <img src="Assets/Cheto_hocico.png" 
+                             alt="Cat 2" 
+                             class="w-20 h-20 object-cover animate-dance-rotate">
+                        <div class="sparkle sparkle-top-left animate-rotate-sparkle"></div>
+                        <div class="sparkle sparkle-top-right animate-corner-sparkle"></div>
+                        <div class="sparkle sparkle-bottom-left animate-corner-sparkle"></div>
+                        <div class="sparkle sparkle-bottom-right animate-rotate-sparkle"></div>
+                        <div class="shimmer animate-corner-shimmer"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nuevo text box -->
+        <div class="relative z-10 max-w-md mx-auto mt-8 bg-opacity-60 rounded-lg p-6 shadow-lg overflow-hidden">
+            <div class="absolute inset-0 border-4 border-transparent bg-rainbow animate-rainbow-border rounded-lg"></div>
+            <div class="relative z-10">
+                <p class="text-center text-lg font-semibold text-purple-800 pixelated-text mb-4">
+                    This is Chetito, my beautiful kitty whom I love with all my life. Thank you for giving me reasons to live.
+                </p>
+                <div class="flex justify-center">
+                    <div class="image-with-sparkles">
+                        <img src="Assets/Cheto_mimiendo.png" 
+                             alt="Chetito" 
+                             class="w-20 h-20 object-cover rotate-20">
+                        <div class="sparkle sparkle-top-left animate-corner-sparkle"></div>
+                        <div class="sparkle sparkle-top-right animate-corner-sparkle"></div>
+                        <div class="sparkle sparkle-bottom-left animate-corner-sparkle"></div>
+                        <div class="sparkle sparkle-bottom-right animate-corner-sparkle"></div>
+                        <div class="shimmer animate-corner-shimmer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img id="mouse-follower"
+             src="Assets/Cheto_mimiendo.png" 
+             alt="Mouse follower" 
+             class="fixed w-16 h-16 object-cover pointer-events-none z-50 transition-all duration-100 ease-out">
+    </div>
+
+    <footer class="text-center py-4">
+        <p class="pixelated-text text-purple-800">By Sushiminis</p>
+    </footer>
+</body>
+</html>

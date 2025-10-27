@@ -1,0 +1,318 @@
+/* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tahoma', sans-serif;
+            background-color: #000;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-image: url('/Assets/Backgrounds/background_1.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            cursor: url('/Assets/pointers/standart.webp'), auto;
+        }
+        
+        /* CRT Effect */
+        .crt-effect {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .crt-effect::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+        
+        .crt-effect::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(18, 16, 16, 0.1);
+            opacity: 0;
+            z-index: 2;
+            pointer-events: none;
+            animation: flicker 0.15s infinite;
+        }
+        
+        @keyframes flicker {
+            0% { opacity: 0.27861; }
+            5% { opacity: 0.34769; }
+            10% { opacity: 0.23604; }
+            15% { opacity: 0.90626; }
+            20% { opacity: 0.18128; }
+            25% { opacity: 0.83891; }
+            30% { opacity: 0.65583; }
+            35% { opacity: 0.67807; }
+            40% { opacity: 0.26559; }
+            45% { opacity: 0.84693; }
+            50% { opacity: 0.96019; }
+            55% { opacity: 0.08594; }
+            60% { opacity: 0.20313; }
+            65% { opacity: 0.71988; }
+            70% { opacity: 0.53455; }
+            75% { opacity: 0.37288; }
+            80% { opacity: 0.71428; }
+            85% { opacity: 0.70419; }
+            90% { opacity: 0.7003; }
+            95% { opacity: 0.36108; }
+            100% { opacity: 0.24387; }
+        }
+        
+        /* Windows XP Window */
+        .window-xp {
+            background-color: #ECE9D8;
+            border: 1px solid #0055EA;
+            border-radius: 8px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 61, 153, 0.5);
+            width: 90%;
+            max-width: 500px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 10px;
+        }
+        
+        .window-header {
+            background: linear-gradient(to right, #0A246A, #1759B0, #A6CAF0);
+            color: white;
+            padding: 5px 8px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 30px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+            box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.2);
+        }
+        
+        .window-title {
+            display: flex;
+            align-items: center;
+        }
+        
+        .window-icon {
+            margin-right: 6px;
+            width: 16px;
+            height: 16px;
+        }
+        
+        .window-controls {
+            display: flex;
+        }
+        
+        .window-button {
+            width: 21px;
+            height: 21px;
+            margin-left: 2px;
+            background: linear-gradient(to bottom, #FFFFFF, #D1D1D1);
+            border: 1px solid #FFFFFF;
+            border-right-color: #848484;
+            border-bottom-color: #848484;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 9px;
+            color: black;
+            border-radius: 3px;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+        }
+        
+        .window-close {
+            font-weight: bold;
+            color: #000;
+            font-size: 10px;
+            background: linear-gradient(to bottom, #FFAB99, #FF5C33);
+            border-color: #FF0000;
+        }
+
+        .window-minimize {
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 5px;
+        }
+
+        .window-maximize {
+            font-size: 9px;
+            position: relative;
+        }
+        
+        .window-content {
+            padding: 20px;
+            text-align: center;
+            background-color: #ECE9D8;
+            border-top: 1px solid #FFFFFF;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+        
+        .welcome-text {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #0A246A;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
+            font-family: 'Tahoma', sans-serif;
+        }
+        
+        .welcome-subtitle {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #333;
+            font-family: 'Tahoma', sans-serif;
+        }
+        
+        /* XP Icons */
+        .xp-icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .xp-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 10px;
+            object-fit: contain;
+        }
+        
+        /* XP Buttons */
+        .xp-button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .xp-button {
+            padding: 8px 20px;
+            background: linear-gradient(to bottom, #F6F6F6, #DEDEDE);
+            border: 1px solid #919191;
+            border-radius: 3px;
+            color: #333333;
+            font-weight: bold;
+            cursor: url('pointers/standart.webp'), pointer;
+            min-width: 120px;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .xp-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+            border-radius: 3px 3px 0 0;
+            pointer-events: none;
+        }
+        
+        .xp-button:hover {
+            background: linear-gradient(to bottom, #EAF6FD, #B5D8F6);
+            border-color: #0078D7;
+        }
+        
+        .xp-button:active {
+            background: #CCE4F7;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .window-xp {
+                width: 95%;
+            }
+            
+            .welcome-text {
+                font-size: 20px;
+            }
+            
+            .welcome-subtitle {
+                font-size: 16px;
+            }
+            
+            .xp-button {
+                padding: 10px 15px;
+            }
+        }
+        
+        .dog-container {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .dog-gif {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .window-close:hover {
+            background: linear-gradient(to bottom, #FF8D77, #FF3300);
+        }
+        
+        .window-minimize:hover, .window-maximize:hover {
+            background: linear-gradient(to bottom, #F2F2F2, #C9C9C9);
+        }
+        
+        /* Blinking Cursor */
+        .xp-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 18px;
+            background-color: black;
+            vertical-align: middle;
+            margin-left: 4px;
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Links cursor */
+        a, button, .window-button, .xp-button {
+            cursor: url('Pointers/standart.webp'), pointer;
+        }
+
+        /* Construction Note */
+        .construction-note {
+            font-size: 11px;
+            color: #666;
+            margin-top: 15px;
+            font-style: italic;
+            font-family: 'Tahoma', sans-serif;
+        }

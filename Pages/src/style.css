@@ -1,0 +1,352 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: url('Assets/pointers/standart.webp'), auto;
+        }
+        
+        body {
+            font-family: 'Tahoma', sans-serif;
+            background-image: url('/Assets/Backgrounds/background_1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            overflow: hidden;
+            color: #333;
+        }
+        
+        /* Taskbar */
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to bottom, #245EDC, #3A95FF);
+            border-top: 1px solid #5BADFF;
+            display: flex;
+            z-index: 1000;
+        }
+        
+        .start-button {
+            height: 100%;
+            padding: 0 8px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to bottom, #378B44, #30723A);
+            border-right: 1px solid #5BADFF;
+            cursor: pointer;
+            user-select: none;
+            cursor: url('Assets/pointers/standart.webp'), pointer;
+        }
+        
+        .start-button:hover {
+            background: linear-gradient(to bottom, #42A050, #378B44);
+        }
+        
+        .start-button img {
+            height: 20px;
+            margin-right: 5px;
+        }
+        
+        .start-button span {
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+        }
+        
+        .taskbar-time {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 12px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+        }
+        
+        /* Desktop Icons */
+        .desktop {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: calc(100vh - 40px);
+            overflow-y: auto;
+            user-select: none;
+        }
+        
+        .desktop-icon {
+            width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            cursor: url('Assets/pointers/standart.webp'), pointer;
+        }
+        
+        .desktop-icon img {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 5px;
+        }
+        
+        .desktop-icon span {
+            color: white;
+            text-align: center;
+            font-size: 12px;
+            text-shadow: 1px 1px 2px black;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .desktop-icon:hover span {
+            background-color: rgba(49, 106, 197, 0.5);
+        }
+        
+        /* Windows */
+        .window {
+            position: absolute;
+            background-color: #ECE9D8;
+            border: 1px solid #0055EA;
+            border-radius: 8px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 61, 153, 0.5);
+            overflow: hidden;
+            z-index: 10;
+            display: none;
+            max-width: calc(100% - 40px);
+            max-height: calc(100vh - 80px);
+        }
+        
+        /* About window - wider to show 3-column layout */
+        #about-window {
+            width: 1020px;
+            height: 600px;
+        }
+        
+        /* Home window - more panoramic window */
+        #home-window {
+            width: 900px;
+            height: 550px;
+        }
+        
+        /* Chetito window - large window for showing images and content */
+        #cheto-window {
+            width: 950px;
+            height: 650px;
+        }
+        
+        /* Contact window - smaller window, simple content */
+        #contact-window {
+            width: 400px;
+            height: 350px;
+        }
+        
+        /* Browser window - window for virtual pet */
+        #browser-window {
+            width: 850px;
+            height: 600px;
+        }
+        
+        /* Chat window - compact window for messaging */
+        #chat-window {
+            width: 520px;
+            height: 600px;
+        }
+        
+        .window-header {
+            background: linear-gradient(to right, #0A246A, #1759B0, #A6CAF0);
+            color: white;
+            padding: 5px 8px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 30px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+            box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.2);
+            cursor: move;
+        }
+        
+        .window-title {
+            display: flex;
+            align-items: center;
+            user-select: none;
+            pointer-events: none;
+        }
+        
+        .window-icon {
+            margin-right: 6px;
+            width: 16px;
+            height: 16px;
+        }
+        
+        .window-controls {
+            display: flex;
+        }
+        
+        .window-button {
+            width: 21px;
+            height: 21px;
+            margin-left: 2px;
+            background: linear-gradient(to bottom, #FFFFFF, #D1D1D1);
+            border: 1px solid #FFFFFF;
+            border-right-color: #848484;
+            border-bottom-color: #848484;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 9px;
+            color: black;
+            border-radius: 3px;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+            cursor: url('Assets/pointers/standart.webp'), pointer;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .window-minimize:hover, .window-maximize:hover {
+            background: linear-gradient(to bottom, #F2F2F2, #C9C9C9);
+        }
+        
+        .window-close {
+            font-weight: bold;
+            color: #000;
+            font-size: 10px;
+            background: linear-gradient(to bottom, #FFAB99, #FF5C33);
+            border-color: #FF0000;
+        }
+        
+        .window-close:hover {
+            background: linear-gradient(to bottom, #FF8D77, #FF3300);
+        }
+        
+        .window-content {
+            padding: 0;
+            height: calc(100% - 30px);
+            overflow: auto;
+            background-color: white;
+        }
+        
+        .window iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            background-color: white;
+        }
+        
+        /* CRT Effect */
+        .crt-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9000;
+            pointer-events: none;
+        }
+        
+        .crt-effect::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 9001;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
+        
+        .crt-effect::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(18, 16, 16, 0.1);
+            opacity: 0;
+            z-index: 9002;
+            pointer-events: none;
+            animation: flicker 0.15s infinite;
+        }
+        
+        @keyframes flicker {
+            0% { opacity: 0.27861; }
+            5% { opacity: 0.34769; }
+            10% { opacity: 0.23604; }
+            15% { opacity: 0.90626; }
+            20% { opacity: 0.18128; }
+            25% { opacity: 0.83891; }
+            30% { opacity: 0.65583; }
+            35% { opacity: 0.67807; }
+            40% { opacity: 0.26559; }
+            45% { opacity: 0.84693; }
+            50% { opacity: 0.96019; }
+            55% { opacity: 0.08594; }
+            60% { opacity: 0.20313; }
+            65% { opacity: 0.71988; }
+            70% { opacity: 0.53455; }
+            75% { opacity: 0.37288; }
+            80% { opacity: 0.71428; }
+            85% { opacity: 0.70419; }
+            90% { opacity: 0.7003; }
+            95% { opacity: 0.36108; }
+            100% { opacity: 0.24387; }
+        }
+        
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .desktop-icon {
+                width: 70px;
+            }
+            
+            .desktop-icon img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .window {
+                width: 95% !important;
+                height: 80% !important;
+                left: 2.5% !important;
+                top: 5% !important;
+            }
+            
+            .window-button {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+                margin-left: 4px;
+            }
+            
+            .window-close {
+                font-size: 16px;
+            }
+        }
+        
+        /* Add a visual resize handler */
+        .resize-handle {
+            display: none;
+        }
+        
+        /* Additional adjustments for touch devices */
+        .touch-device .window-button {
+            width: 34px;
+            height: 34px;
+            font-size: 16px;
+            margin-left: 5px;
+            padding: 8px;
+        }
+        
+        .touch-device .window-close {
+            font-size: 18px;
+        }

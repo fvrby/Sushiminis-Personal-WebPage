@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushiminis - Desktop</title>
+    <link href="src/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Desktop Area Iconos -->
+    <div class="desktop">
+        <div class="desktop-icon" data-window="about">
+            <img alt="Blog Icon" src="Assets/icons/Entire Network.png">
+            <span>Blog</span>
+        </div>
+        <div class="desktop-icon" data-window="home">
+            <img alt="Who Am I Icon" src="Assets/icons/MSN Messenger.png">
+            <span>Who Am I</span>
+        </div>
+        <div class="desktop-icon" data-window="cheto">
+            <img alt="Chetito Icon" src="Assets/icons/Critical.png">
+            <span>Chetito's Zone</span>
+        </div>
+        <div class="desktop-icon" data-window="contact">
+            <img alt="Contact Icon" src="Assets/icons/My Computer.png">
+            <span>Contact</span>
+        </div>
+        <div class="desktop-icon" data-window="browser">
+            <img alt="Tamagotchi Icon" src="Assets/icons/Internet Explorer 6.png">
+            <span>Sushi&amp;Cheeto Tamagotchi</span>
+        </div>
+        <div class="desktop-icon" data-window="chat">
+            <img alt="Chat Icon" src="Assets/icons/Windows Messenger.png">
+            <span>Chat</span>
+        </div>
+    </div>
+
+    <!-- Windows -->
+    <!-- Blog Window -->
+    <div class="window" id="about-window">
+        <div class="window-header">
+            <div class="window-title">
+                <img alt="Blog Icon" class="window-icon" src="/Assets/icons/Entire Network.png">
+                <span>Blog</span>
+            </div>
+            <div class="window-controls">
+                <div class="window-button window-minimize">_</div>
+                <div class="window-button window-maximize">□</div>
+                <div class="window-button window-close">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <iframe src="Desktop-Pages/Blog/blog.html"></iframe>
+        </div>
+    </div>
+
+    <!-- Who Am I Window -->
+    <div class="window" id="home-window">
+        <div class="window-header">
+            <div class="window-title">
+                <img alt="Who Am I Icon" class="window-icon" src="Assets/icons/MSN Messenger.png">
+                <span>Who Am I</span>
+            </div>
+            <div class="window-controls">
+                <div class="window-button window-minimize">_</div>
+                <div class="window-button window-maximize">□</div>
+                <div class="window-button window-close">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <iframe src="Desktop-Pages/WhoAmI/home.html"></iframe>
+        </div>
+    </div>
+
+    <!-- Chetito's Zone Window -->
+    <div class="window" id="cheto-window">
+        <div class="window-header">
+            <div class="window-title">
+                <img alt="Chetito Icon" class="window-icon" src="Assets/icons/Critical.png">
+                <span>Chetito's Zone</span>
+            </div>
+            <div class="window-controls">
+                <div class="window-button window-minimize">_</div>
+                <div class="window-button window-maximize">□</div>
+                <div class="window-button window-close">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <iframe src="Desktop-Pages/Cheto_zone/chetito_zone.html"></iframe>
+        </div>
+    </div>
+
+    <!-- Contact Window -->
+    <div class="window" id="contact-window">
+        <div class="window-header">
+            <div class="window-title">
+                <img alt="Contact Icon" class="window-icon" src="Assets/icons/My Computer.png">
+                <span>Contact</span>
+            </div>
+            <div class="window-controls">
+                <div class="window-button window-minimize">_</div>
+                <div class="window-button window-maximize">□</div>
+                <div class="window-button window-close">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <iframe src="Desktop-Pages/Contact/contact.html"></iframe>
+        </div>
+    </div>
+
+    <!-- Tamagotchi Window -->
+    <div class="window" id="browser-window">
+        <div class="window-header">
+            <div class="window-title">
+                <img alt="Tamagotchi Icon" class="window-icon" src="Assets/icons/Internet Explorer 6.png">
+                <span>Sushi&amp;Cheeto Tamagotchi</span>
+            </div>
+            <div class="window-controls">
+                <div class="window-button window-minimize">_</div>
+                <div class="window-button window-maximize">□</div>
+                <div class="window-button window-close">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <iframe src="https://gifypet.neocities.org/pet/pet.html?name=Sushi%20&amp;%20&amp;dob=1727986437&amp;gender=b&amp;element=Fire&amp;pet=https%3A%2F%2Fi.imgur.com%2FUddMvPE.jpeg&amp;map=tree.jpg&amp;background=https%3A%2F%2Fi.imgur.com%2FcEtgtvL.png&amp;tablecolor=%23ff99f1&amp;textcolor=black"></iframe>
+        </div>
+    </div>
+
+    <!-- Chat Window -->
+    <div class="window" id="chat-window">
+        <div class="window-header">
+            <div class="window-title">
+                <img alt="Chat Icon" class="window-icon" src="Assets/icons/Windows Messenger.png">
+                <span>Chat</span>
+            </div>
+            <div class="window-controls">
+                <div class="window-button window-minimize">_</div>
+                <div class="window-button window-maximize">□</div>
+                <div class="window-button window-close">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <iframe src="Desktop-Pages/Chat/chat.html"></iframe>
+        </div>
+    </div>
+
+    <!-- Barra de tareas -->
+    <div class="taskbar">
+        <div class="start-button">
+            <img alt="Start" src="Assets/icons/xp.png">
+            <span>Start</span>
+        </div>
+        <div class="taskbar-time" id="current-time"></div>
+    </div>
+
+    <!-- CRT Effect -->
+    <div class="crt-effect"></div>
+
+    <script src="src/script.js"></script>
+</body>
+</html>
