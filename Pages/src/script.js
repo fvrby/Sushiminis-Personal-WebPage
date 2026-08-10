@@ -92,7 +92,8 @@
                 const closeWindow = function() {
                     const window = this.closest('.window');
                     window.style.display = 'none';
-                    
+                    pauseWindowMedia(window);
+
                     // Play close sound
                     const audio = new Audio('https://www.myinstants.com/media/sounds/error.mp3');
                     audio.volume = 0.2;
@@ -146,7 +147,8 @@
                 const minimizeWindow = function() {
                     const window = this.closest('.window');
                     window.style.display = 'none';
-                    
+                    pauseWindowMedia(window);
+
                     // Play minimize sound
                     const audio = new Audio('https://www.myinstants.com/media/sounds/windows-xp-ding.mp3');
                     audio.volume = 0.2;
@@ -174,6 +176,15 @@
             });
         }
         
+        // Pausa la musica de una ventana (ej. Media Player) al cerrarla o minimizarla
+        function pauseWindowMedia(win) {
+            const frame = win.querySelector('iframe');
+            if (!frame || !frame.contentWindow) return;
+            try {
+                frame.contentWindow.postMessage({ wmp: 'pause' }, '*');
+            } catch (e) { /* iframe externo, se ignora */ }
+        }
+
         function openWindow(windowId) {
             const window = document.getElementById(windowId);
             

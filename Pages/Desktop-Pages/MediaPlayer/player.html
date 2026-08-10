@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Media Player - Sushiminis</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body data-skin="blue">
+
+<div class="wmp">
+
+    <!-- ============ BARRA DE MENUS ============ -->
+    <div class="menubar" id="menubar">
+        <div class="menu" data-menu="file">
+            <span class="menu-label"><u>F</u>ile</span>
+            <ul class="menu-drop">
+                <li data-act="open">Open&hellip;</li>
+                <li data-act="open-folder">Add folder to playlist&hellip;</li>
+                <li class="sep"></li>
+                <li data-act="clear">Clear playlist</li>
+                <li data-act="reload">Reload playlist.js</li>
+            </ul>
+        </div>
+        <div class="menu" data-menu="view">
+            <span class="menu-label"><u>V</u>iew</span>
+            <ul class="menu-drop">
+                <li data-act="viz-0">Ambience: Water</li>
+                <li data-act="viz-1">Bars and Waves: Bars</li>
+                <li data-act="viz-2">Bars and Waves: Scope</li>
+                <li data-act="viz-3">Battery: Sync-a-tron</li>
+                <li class="sep"></li>
+                <li data-act="toggle-playlist">Show / hide playlist</li>
+            </ul>
+        </div>
+        <div class="menu" data-menu="play">
+            <span class="menu-label"><u>P</u>lay</span>
+            <ul class="menu-drop">
+                <li data-act="playpause">Play / Pause</li>
+                <li data-act="stop">Stop</li>
+                <li data-act="prev">Previous</li>
+                <li data-act="next">Next</li>
+                <li class="sep"></li>
+                <li data-act="shuffle">Shuffle</li>
+                <li data-act="repeat">Repeat</li>
+            </ul>
+        </div>
+        <div class="menu" data-menu="tools">
+            <span class="menu-label"><u>T</u>ools</span>
+            <ul class="menu-drop">
+                <li data-act="options">Options&hellip;</li>
+            </ul>
+        </div>
+        <div class="menu" data-menu="help">
+            <span class="menu-label"><u>H</u>elp</span>
+            <ul class="menu-drop">
+                <li data-act="about">About Sushiminis Media Player</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ============ CUERPO ============ -->
+    <div class="wmp-body">
+
+        <!-- Columna de tareas (izquierda) -->
+        <div class="taskcol">
+            <button class="task active" data-panel="now">Now<br>Playing</button>
+            <button class="task" data-panel="guide">Media<br>Guide</button>
+            <button class="task" data-panel="cd">Copy<br>from CD</button>
+            <button class="task" data-panel="library">Media<br>Library</button>
+            <button class="task" data-panel="radio">Radio<br>Tuner</button>
+            <button class="task" data-panel="burn">Copy to CD<br>or Device</button>
+            <button class="task" data-panel="skins">Skin<br>Chooser</button>
+        </div>
+
+        <!-- Zona principal -->
+        <div class="main">
+
+            <!-- Barra superior decorativa -->
+            <div class="topstrip">
+                <div class="topstrip-dots"><span></span><span></span><span></span></div>
+                <div class="topstrip-user" title="Sushiminis"></div>
+            </div>
+
+            <div class="panels">
+
+                <!-- ---------- NOW PLAYING ---------- -->
+                <section class="panel active" id="panel-now">
+                    <div class="stage">
+
+                        <div class="viz-pane">
+                            <div class="np-meta">
+                                <div class="np-artist" id="npArtist">Sushiminis</div>
+                                <div class="np-title" id="npTitle">Windows Media Player</div>
+                            </div>
+
+                            <div class="viz-wrap">
+                                <canvas id="viz"></canvas>
+                                <div class="viz-empty" id="vizEmpty">
+                                    <img src="../../Assets/icons/windows-media-player-icon.png" alt="" width="56" height="56">
+                                    <p>Drop your <b>.mp3</b> files here<br>or list them in <b>playlist.js</b></p>
+                                </div>
+                            </div>
+
+                            <div class="viz-bar">
+                                <button class="viz-arrow" id="vizPrev" title="Previous visualization">&#9666;</button>
+                                <span class="viz-name" id="vizName">Ambience: Water</span>
+                                <button class="viz-arrow" id="vizNext" title="Next visualization">&#9656;</button>
+                            </div>
+
+                            <div class="artstrip" id="artStrip">
+                                <div class="art" id="artBox"><span>?</span></div>
+                                <div class="artinfo">
+                                    <div class="artinfo-album" id="npAlbum">&mdash;</div>
+                                    <div class="artinfo-sub" id="npSub">No file loaded</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lista de reproduccion (derecha) -->
+                        <div class="playlist-pane" id="playlistPane">
+                            <div class="pl-head">
+                                <select id="plSelect">
+                                    <option>Sample Playlist</option>
+                                </select>
+                            </div>
+                            <ul class="pl-list" id="plList"></ul>
+                            <div class="pl-foot">
+                                <span id="plCount">0 items</span>
+                                <span>Total Time: <b id="plTotal">0:00</b></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ---------- MEDIA LIBRARY ---------- -->
+                <section class="panel" id="panel-library">
+                    <div class="lib">
+                        <div class="lib-head">
+                            <span>Media Library &mdash; All Audio</span>
+                            <span class="lib-actions">
+                                <button class="xp-btn" id="libAdd">Add files&hellip;</button>
+                                <button class="xp-btn" id="libClear">Clear</button>
+                            </span>
+                        </div>
+                        <table class="lib-table">
+                            <thead>
+                                <tr><th style="width:26px">#</th><th>Title</th><th style="width:130px">Artist</th><th style="width:140px">Album</th><th style="width:52px">Length</th></tr>
+                            </thead>
+                            <tbody id="libBody"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- ---------- SKIN CHOOSER ---------- -->
+                <section class="panel" id="panel-skins">
+                    <div class="skins">
+                        <div class="skins-title">Skin Chooser</div>
+                        <div class="skins-grid">
+                            <button class="skin-card" data-skin="blue"><span class="sw sw-blue"></span>Windows XP Blue</button>
+                            <button class="skin-card" data-skin="pink"><span class="sw sw-pink"></span>Sushi Pink</button>
+                            <button class="skin-card" data-skin="green"><span class="sw sw-green"></span>Matrix Green</button>
+                            <button class="skin-card" data-skin="silver"><span class="sw sw-silver"></span>Silver Classic</button>
+                            <button class="skin-card" data-skin="night"><span class="sw sw-night"></span>Midnight Purple</button>
+                        </div>
+                        <p class="skins-note">Your skin is remembered by this browser.</p>
+                    </div>
+                </section>
+
+                <!-- ---------- PANELES DECORATIVOS ---------- -->
+                <section class="panel" id="panel-guide">
+                    <div class="fake-panel">
+                        <div class="fake-ie">
+                            <div class="fake-ie-bar">WindowsMedia.com &mdash; Media Guide</div>
+                            <div class="fake-ie-body">
+                                <h2>Cannot find server</h2>
+                                <p>The page cannot be displayed.</p>
+                                <hr>
+                                <p class="tiny">Try <b>Now Playing</b> instead &mdash; there is real music in there.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel" id="panel-cd">
+                    <div class="fake-panel">
+                        <div class="fake-box">
+                            <h3>Copy from CD</h3>
+                            <p><b>No CD-ROM drive was found.</b></p>
+                            <p>Insert an audio CD into the tray&hellip; oh, right,<br>
+                               your computer has no CD drive. Neither does your browser.</p>
+                            <div class="cdtray"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel" id="panel-radio">
+                    <div class="fake-panel">
+                        <div class="fake-box">
+                            <h3>Radio Tuner</h3>
+                            <p>Scanning for stations&hellip;</p>
+                            <div class="dial"><div class="dial-needle"></div></div>
+                            <p class="tiny">Signal lost. All you can hear is static and a radio<br>
+                               show from 2004 talking about MSN Messenger.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel" id="panel-burn">
+                    <div class="fake-panel">
+                        <div class="fake-box">
+                            <h3>Copy to CD or Device</h3>
+                            <p><b>No device detected.</b></p>
+                            <p>Plug in your 128 MB MP3 player and try again.</p>
+                            <div class="progress-fake"><div></div></div>
+                        </div>
+                    </div>
+                </section>
+
+            </div><!-- /panels -->
+
+            <!-- ============ BARRA DE ESTADO / ALBUM ============ -->
+            <div class="statusbar">
+                <span class="status-left" id="statusText">Ready</span>
+                <span class="status-right" id="timeNow">00:00</span>
+            </div>
+
+            <!-- ============ BARRA DE BUSQUEDA ============ -->
+            <div class="seekrow">
+                <div class="seek" id="seek" title="Seek">
+                    <div class="seek-fill" id="seekFill"></div>
+                    <div class="seek-thumb" id="seekThumb"></div>
+                </div>
+                <span class="seek-time" id="timeTotal">00:00</span>
+            </div>
+
+            <!-- ============ CONTROLES ============ -->
+            <div class="controlbar">
+                <img class="wmp-logo" src="../../Assets/icons/windows-media-player-icon.png" alt="WMP" width="26" height="26">
+
+                <button class="tbtn tbtn-big" id="btnPlay" title="Play/Pause (Space)">
+                    <svg viewBox="0 0 24 24" id="playIcon"><path d="M8 5.5 L18 12 L8 18.5 Z"/></svg>
+                </button>
+                <button class="tbtn" id="btnStop" title="Stop">
+                    <svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10"/></svg>
+                </button>
+                <button class="tbtn" id="btnPrev" title="Previous">
+                    <svg viewBox="0 0 24 24"><path d="M17 6 L9 12 L17 18 Z"/><rect x="6" y="6" width="2.4" height="12"/></svg>
+                </button>
+                <button class="tbtn" id="btnNext" title="Next">
+                    <svg viewBox="0 0 24 24"><path d="M7 6 L15 12 L7 18 Z"/><rect x="15.6" y="6" width="2.4" height="12"/></svg>
+                </button>
+
+                <span class="ctl-sep"></span>
+
+                <button class="tbtn tbtn-sm" id="btnShuffle" title="Shuffle">
+                    <svg viewBox="0 0 24 24"><path d="M3 7h4l4 10h6M3 17h4l2-5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 4l4 3-4 3z"/><path d="M16 14l4 3-4 3z"/></svg>
+                </button>
+                <button class="tbtn tbtn-sm" id="btnRepeat" title="Repeat">
+                    <svg viewBox="0 0 24 24"><path d="M5 9a4 4 0 0 1 4-4h9M19 15a4 4 0 0 1-4 4H6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 2l4 3-4 3z"/><path d="M8 16l-4 3 4 3z"/></svg>
+                </button>
+
+                <span class="ctl-sep"></span>
+
+                <button class="tbtn tbtn-sm" id="btnMute" title="Mute">
+                    <svg viewBox="0 0 24 24" id="muteIcon"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path id="wave1" d="M16 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                </button>
+                <div class="vol" id="vol" title="Volume">
+                    <div class="vol-fill" id="volFill"></div>
+                    <div class="vol-thumb" id="volThumb"></div>
+                </div>
+            </div>
+        </div><!-- /main -->
+    </div><!-- /wmp-body -->
+</div><!-- /wmp -->
+
+<!-- Zona para soltar archivos -->
+<div class="dropzone" id="dropzone"><div>Drop your <b>.mp3</b> files to add them to the playlist</div></div>
+
+<!-- Cuadro de dialogo reutilizable, estilo XP -->
+<div class="modal-back" id="modalBack">
+    <div class="xp-dialog" id="xpDialog">
+        <div class="xp-dialog-head"><span id="dlgTitle">Options</span><button class="xp-dialog-x" id="dlgX">&times;</button></div>
+        <div class="xp-dialog-body" id="dlgBody"></div>
+        <div class="xp-dialog-foot"><button class="xp-btn" id="dlgOk">OK</button></div>
+    </div>
+</div>
+
+<input type="file" id="filePicker" accept="audio/*,.mp3,.ogg,.wav,.m4a" multiple hidden>
+<input type="file" id="folderPicker" webkitdirectory directory multiple hidden>
+
+<script src="playlist.js"></script>
+<script src="player.js"></script>
+</body>
+</html>

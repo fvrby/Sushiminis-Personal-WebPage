@@ -156,6 +156,17 @@
             width: 520px;
             height: 600px;
         }
+
+        /* Media Player window - Windows Media Player 9 look */
+        #player-window {
+            width: 720px;
+            height: 545px;
+        }
+
+        #player-window .window-content {
+            background-color: #0d2b6b;
+            overflow: hidden;
+        }
         
         .window-header {
             background: linear-gradient(to right, #0A246A, #1759B0, #A6CAF0);
